@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/SusanXu123/urlencode2json-middleware.svg?branch=master)](https://travis-ci.org/SusanXu123/urlencode2json-middleware)  [![Coverage Status](https://coveralls.io/repos/github/SusanXu123/urlencode2json-middleware/badge.svg?branch=master)](https://coveralls.io/github/SusanXu123/urlencode2json-middleware?branch=master)
+
+
+
 ## Installation
 
 ```bash

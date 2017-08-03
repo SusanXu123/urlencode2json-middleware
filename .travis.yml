@@ -16,10 +16,11 @@ sudo: false
 cache:
   directories:
     - node_modules
-before_install:
+install:
   # Setup Node.js version-specific dependencies
   - npm install
 
 script:
   # Run test script, depending on istanbul install
   - npm run test-cov
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
