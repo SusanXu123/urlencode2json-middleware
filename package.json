@@ -1,6 +1,6 @@
 {
   "name": "urlencode2json-middleware",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "urlencode2json-middleware is a middleware to enhance express bodyparser to parse string to crrect json type.",
   "main": "index.js",
   "scripts": {
