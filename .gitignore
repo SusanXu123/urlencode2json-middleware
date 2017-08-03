@@ -6,3 +6,4 @@ yarn.lock
 npm-debug.log
 dist
 coverage
+package-lock.json
