@@ -1,0 +1,22 @@
+{
+  "name": "parse-urlencoded-middleware",
+  "version": "0.0.1",
+  "description": "a middleware to help express bodyparse",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/*.spec.js",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha --  --reporter dot --check-leaks ./test/*.spec.js"
+  },
+  "author": "767196201@qq.com",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^2.6.8"
+  },
+  "devDependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.5.0",
+    "supertest": "^3.0.0"
+  }
+}
