@@ -24,7 +24,9 @@ script:
   # Run test script, depending on istanbul install
   - npm run test-cov
   - echo ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+
 deploy:
-  - echo $NPM_RC >> .npmrc
-  - npm version minor
-  - npm publish .
+  provider: npm
+  email: $NPM_EMAIL
+  api_key: $NPM_EMAIL
+  tag: next
