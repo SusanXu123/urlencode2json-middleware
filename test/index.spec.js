@@ -51,3 +51,158 @@ describe('post with urlencode data should be transform to json', () => {
      .expect(200, expectedRes, done)
    })
 })
+
+describe('put with urlencode data should not be transform to json', () => {
+  let server
+   before(function () {
+     server = createServer()
+   })
+
+   it('send empty body should be parsed to {}', function (done) {
+     request(server)
+     .put('/')
+     .expect(200, '{}', done)
+   })
+
+   it('send application/json should be skiped', function (done) {
+     request(server)
+     .put('/')
+     .set('Content-Type', 'application/json')
+     .send('{"user":"tobi"}')
+     .expect(200, '{"user":"tobi"}', done)
+   })
+
+   it('send x-www-form-urlencoded should be skiped ', function (done) {
+     const body = [
+       'user=tobi',
+       'arg_bool=true',
+       'arg_number=3',
+       'arg_bool_str="true"',
+       'arg_number_str="33"',
+       'arg_null=null',
+       'arg_null_str="null"',
+       'arg_undefined=undefined',
+       'arg_undefined_str="undefined"'
+     ].join('&')
+     const expectedRes = JSON.stringify({
+       'user':'tobi',
+       'arg_bool':'true',
+       'arg_number':'3',
+       'arg_bool_str':'"true"',
+       'arg_number_str':'"33"',
+       'arg_null':'null',
+       'arg_null_str':'"null"',
+       'arg_undefined':'undefined',
+       'arg_undefined_str':'"undefined"'
+     })
+     request(server)
+     .put('/')
+     .set('Content-Type', 'application/x-www-form-urlencoded')
+     .send(body)
+     .expect(200, expectedRes, done)
+   })
+})
+
+
+describe('delete with urlencode data should not be transform to json', () => {
+  let server
+   before(function () {
+     server = createServer()
+   })
+
+   it('send empty body should be parsed to {}', function (done) {
+     request(server)
+     .delete('/')
+     .expect(200, '{}', done)
+   })
+
+   it('send application/json should be skiped', function (done) {
+     request(server)
+     .delete('/')
+     .set('Content-Type', 'application/json')
+     .send('{"user":"tobi"}')
+     .expect(200, '{"user":"tobi"}', done)
+   })
+
+   it('send x-www-form-urlencoded should be skiped ', function (done) {
+     const body = [
+       'user=tobi',
+       'arg_bool=true',
+       'arg_number=3',
+       'arg_bool_str="true"',
+       'arg_number_str="33"',
+       'arg_null=null',
+       'arg_null_str="null"',
+       'arg_undefined=undefined',
+       'arg_undefined_str="undefined"'
+     ].join('&')
+     const expectedRes = JSON.stringify({
+       'user':'tobi',
+       'arg_bool':'true',
+       'arg_number':'3',
+       'arg_bool_str':'"true"',
+       'arg_number_str':'"33"',
+       'arg_null':'null',
+       'arg_null_str':'"null"',
+       'arg_undefined':'undefined',
+       'arg_undefined_str':'"undefined"'
+     })
+     request(server)
+     .delete('/')
+     .set('Content-Type', 'application/x-www-form-urlencoded')
+     .send(body)
+     .expect(200, expectedRes, done)
+   })
+})
+
+
+describe('get with urlencode data should not be transform to json', () => {
+  let server
+   before(function () {
+     server = createServer()
+   })
+
+   it('send empty body should be parsed to {}', function (done) {
+     request(server)
+     .get('/')
+     .expect(200, '{}', done)
+   })
+
+   it('send application/json should be skiped', function (done) {
+     request(server)
+     .get('/')
+     .set('Content-Type', 'application/json')
+     .send('{"user":"tobi"}')
+     .expect(200, '{"user":"tobi"}', done)
+   })
+
+   it('send x-www-form-urlencoded should be skiped ', function (done) {
+     const body = [
+       'user=tobi',
+       'arg_bool=true',
+       'arg_number=3',
+       'arg_bool_str="true"',
+       'arg_number_str="33"',
+       'arg_null=null',
+       'arg_null_str="null"',
+       'arg_undefined=undefined',
+       'arg_undefined_str="undefined"'
+     ].join('&')
+     const expectedRes = JSON.stringify({
+       'user':'tobi',
+       'arg_bool':'true',
+       'arg_number':'3',
+       'arg_bool_str':'"true"',
+       'arg_number_str':'"33"',
+       'arg_null':'null',
+       'arg_null_str':'"null"',
+       'arg_undefined':'undefined',
+       'arg_undefined_str':'"undefined"'
+     })
+     request(server)
+     .get('/')
+     .set('Content-Type', 'application/x-www-form-urlencoded')
+     .send(body)
+     .expect(200, expectedRes, done)
+   })
+})
